@@ -1,16 +1,24 @@
-## Hi there 👋
+# Hi, I'm Zafar 👋
 
-<!--
-**cubercaat/cubercaat** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Founder & developer from Tashkent, Uzbekistan 🇺🇿**
+I build web products and Telegram bots for the Uzbek market, and study Cybersecurity Engineering.
 
-Here are some ideas to get you started:
+## 🚀 What I'm building
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- **Taklifnoma Studio**: digital wedding invitations and celebration content
+- **MARMARA**: Telegram bot for a gaming club (booking, members, tournaments) and a template-website studio
+- **Davomat Bot**: Telegram attendance system used across a university
+- **OmborChi**: Telegram inventory and sales bot for shops
+- **ZAFRUN**: GPS zone-capturing social running app (concept)
+
+## 🛠 Focus
+
+`Telegram Bots` · `Web Development` · `Product Building` · `Cybersecurity`
+
+30+ Telegram bots shipped. CRTA (Certified Red Team Analyst) holder.
+
+## 📫 Connect
+
+- 🌐 Portfolio: [zafar.clevora.ru](https://zafar.clevora.ru)
+- ✈️ Telegram: [@zafarx](https://t.me/zafarx) · Channel: [@xsx404](https://t.me/xsx404)
+- 📸 Instagram: [@zafarmamatqulov_](https://instagram.com/zafarmamatqulov_)
