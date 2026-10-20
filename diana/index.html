@@ -108,13 +108,18 @@ input[type=range]:focus-visible{outline:3px solid var(--ink);outline-offset:6px}
 .bars i{display:block;height:100%;width:0;background:var(--rose-deep)}
 
 /* Final */
-.namecv{width:100%;height:150px;display:block}
+.namecv{width:100%;height:150px;display:block;position:relative;z-index:1}
+#s-final .inner{position:relative}
+#s-final .inner::before{content:"";position:absolute;left:50%;top:8px;width:230px;height:230px;transform:translateX(-50%);z-index:0;pointer-events:none;
+  background:radial-gradient(circle,rgba(240,80,138,.35),rgba(240,80,138,0) 65%);animation:beat 1.4s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:translateX(-50%) scale(1)}15%{transform:translateX(-50%) scale(1.15)}30%{transform:translateX(-50%) scale(1)}45%{transform:translateX(-50%) scale(1.1)}}
+#s-final .inner>*{position:relative;z-index:1}
 .confess{font-weight:700;font-size:clamp(1.7rem,7.5vw,2.2rem);line-height:1.25;color:var(--rose-deep);text-wrap:balance}
 .reveal{opacity:0;transform:translateY(12px);transition:opacity 1.1s,transform 1.1s}
 .reveal.show{opacity:1;transform:none}
 .note{width:min(360px,100%);background:var(--card);border-radius:18px;padding:24px 22px 18px;text-align:left;box-shadow:0 24px 50px -24px var(--rose-deep);transform:rotate(-1deg)}
 .note p{color:var(--ink);font-family:var(--f-hand);font-size:1.4rem;line-height:1.3;margin:0 0 10px;max-width:none}
-.note .sig{font-family:var(--f-script);font-size:2.2rem;color:var(--rose-deep);text-align:right;margin:0}
+.note .sig{font-family:var(--f-script);font-size:1.9rem;color:var(--rose-deep);text-align:right;margin:0}
 
 .music{position:fixed;z-index:70;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));
   width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.7);color:var(--rose-deep);font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
@@ -189,7 +194,7 @@ input[type=range]:focus-visible{outline:3px solid var(--ink);outline-offset:6px}
       <div class="qnum">3-savol</div>
       <h2>Bittasini tanla 👀</h2>
       <div class="picks">
-        <button class="pick me" id="pickMe"><span class="tag">pick me 🥺</span><span class="face">🧑🏻</span><b>Yusuf</b><small>seni chin dildan yaxshi ko‘radi</small></button>
+        <button class="pick me" id="pickMe"><span class="tag">pick me 🥺</span><span class="face">🧑🏻</span><b>Men</b><small>seni chin dildan yaxshi ko‘raman</small></button>
         <button class="pick" id="pickOther"><span class="face">❔</span><b>Boshqa birov</b><small>kimligi noma’lum</small></button>
       </div>
     </div>
@@ -227,8 +232,9 @@ input[type=range]:focus-visible{outline:3px solid var(--ink);outline-offset:6px}
       <div class="confess reveal" id="cLine">Men seni juda yaxshi ko‘raman 💗</div>
       <div class="note reveal" id="cNote">
         <p>Javoblaring hazil bo‘lgan bo‘lsa ham, mening bu so‘zlarim chin.</p>
-        <p>Sen men uchun juda qadrlisan. Sendan hech narsa talab qilmayman, faqat bir marta, yuragimdagini ochiq aytmoqchi edim.</p>
-        <p class="sig">Yusuf</p>
+        <p>Sen mening eng chiroyli tasodifimsan. Sen bilan gaplashgan kunlarim boshqa kunlarimdan yorug‘roq.</p>
+        <p>Sendan hech narsa talab qilmayman. Faqat bilib qo‘y: bu dunyoda seni chin yurakdan, jimgina va sabr bilan yaxshi ko‘radigan bir yurak bor. 🤍</p>
+        <p class="sig">seni yaxshi ko‘radigan inson</p>
       </div>
       <button class="btn plain reveal" id="replay">boshidan ko‘rish ↺</button>
     </div>
@@ -345,7 +351,7 @@ $('#pickMe').addEventListener('click',e=>correct(e.currentTarget,'To‘g‘ri ta
 runaway($('#pickOther'),force=>{const o=$('#pickOther');q3++;
   if(force||q3>=3){shatter(o,'Boshqa variant yo‘q edi 😌');return;}
   o.style.transform=`translate(${rnd(-40,10)}px,${rnd(30,90)}px) rotate(${rnd(-12,12)}deg) scale(${1-q3*.15})`;
-  toast(q3===1?'U yoqqa emas 👀':'Yusufga qara, Yusufga 🥺');});
+  toast(q3===1?'U yoqqa emas 👀':'Menga qara, menga 🥺');});
 
 /* --- 4-savol: slayder faqat yuqoriga ketadi --- */
 const sl=$('#slider');let climbing=false;
@@ -360,7 +366,7 @@ sl.addEventListener('pointerdown',climb);
 $('#q4next').addEventListener('click',()=>go('s-story'));
 
 /* --- Iliq so‘zlar --- */
-const LINES=['Endi hazilni bir chetga qo‘yamiz…','Diana, sen bilan o‘tgan har bir suhbat men uchun juda qadrli.','Kulganingni ko‘rsam, kunim o‘z-o‘zidan yorishib ketadi.','Shuning uchun buni bir marta, chin yurakdan aytmoqchiman.'];
+const LINES=['Endi hazilni bir chetga qo‘yamiz…','Diana, sen bilan o‘tgan har bir daqiqa men uchun bebaho.','Kulganingni ko‘rsam, butun dunyo bir lahzaga jim bo‘lib qolgandek tuyuladi.','Ismingni eshitsam, yuragim boshqacha ura boshlaydi.','Kechalari yulduzlarga qarab, faqat seni o‘ylayman.','Shuning uchun buni bir marta, chin yurakdan aytmoqchiman…'];
 const DUR=5200;let si=0,sStart=0,raf=0;$('#bars').innerHTML=LINES.map(()=>'<span><i></i></span>').join('');const bars=$$('#bars i');
 function showLine(){const el=$('#line');el.innerHTML='';LINES[si].split(' ').forEach((w,i)=>{const s=document.createElement('span');s.className='w';s.textContent=w+' ';s.style.animationDelay=(i*.14)+'s';el.appendChild(s);});
   bars.forEach((b,i)=>b.style.width=i<si?'100%':'0');sStart=performance.now();}
